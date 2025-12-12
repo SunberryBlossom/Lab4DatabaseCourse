@@ -7,18 +7,9 @@ namespace Lab4.Data.Interfaces
 {
     internal interface ICourseRepository
     {
-        void AddCourse() { }
-
-        List<Course> GetAllCourses()
-        {
-            return null;
-        }
-
-        void UpdateCourseInfo(Course course)
-        {
-
-        }
-
-        void RemoveCourse(Course course) { }
+        void AddCourse();
+        List<Course> GetAllCourses();
+        void UpdateCourseInfo(Course course);
+        void RemoveCourse(Course course);
     }
 }

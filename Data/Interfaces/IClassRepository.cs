@@ -7,18 +7,10 @@ namespace Lab4.Data.Interfaces
 {
     internal interface IClassRepository
     {
-        void AddClass() { }
+        void AddClass();
 
-        List<Class> GetAllClasses()
-        {
-            return null;
-        }
-
-        void UpdateClassInfo(Class @class)
-        {
-
-        }
-
-        void RemoveClass(Class @class) { }
+        List<Class> GetAllClasses();
+        void UpdateClassInfo(Class @class);
+        void RemoveClass(Class @class);
     }
 }

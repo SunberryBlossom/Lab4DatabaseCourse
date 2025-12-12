@@ -7,18 +7,9 @@ namespace Lab4.Data.Interfaces
 {
     internal interface IGradeRepository
     {
-        void AddGrade() { }
-
-        List<Student> GetAllGrades()
-        {
-            return null;
-        }
-
-        void UpdateGradeInfo(Grade grade)
-        {
-
-        }
-
-        void RemoveGrade(Grade grade) { }
+        void AddGrade();
+        List<Student> GetAllGrades();
+        void UpdateGradeInfo(Grade grade);
+        void RemoveGrade(Grade grade);
     }
 }

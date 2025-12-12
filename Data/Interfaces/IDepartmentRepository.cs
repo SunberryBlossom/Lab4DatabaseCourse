@@ -5,20 +5,11 @@ using System.Text;
 
 namespace Lab4.Data.Interfaces
 {
-    internal class IDepartmentRepository
+    internal interface IDepartmentRepository
     {
-        void AddDepartment() { }
-
-        List<Department> GetAllDepartments()
-        {
-            return null;
-        }
-
-        void UpdateDepartmentInfo(Department department)
-        {
-
-        }
-
-        void RemoveDepartment(Department department) { }
+        void AddDepartment();
+        List<Department> GetAllDepartments();
+        void UpdateDepartmentInfo(Department department);
+        void RemoveDepartment(Department department);
     }
 }
