@@ -22,7 +22,7 @@ namespace Lab4.Data.Interfaces
             return null;
         }
 
-        internal void UpdateStaffInfo() 
+        internal void UpdateStaffInfo(Staff staff) 
         { 
         
         }
