@@ -7,11 +7,11 @@ namespace Lab4.Data.Interfaces
 {
     internal interface IStaffRepository
     {
-        internal void AddStaff();
-        internal List<Staff> GetAllStaff();
-        internal Staff GetStaffById();
-        internal void UpdateStaffInfo(Staff staff);
-        internal void RemoveStaffById();
-        internal List<Staff> GetAllTeachers();
+        void AddStaff(string firstName, string lastName, DateOnly date, int monthlySalary, int staffTypeId, int departmentId);
+        List<Staff> GetAllStaff();
+        // Staff GetStaffById();
+        // void UpdateStaffInfo(Staff staff);
+        // void RemoveStaffById();
+        List<Staff> GetAllTeachers();
     }
 }
