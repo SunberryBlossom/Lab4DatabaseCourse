@@ -22,9 +22,6 @@
     <Folder Include="Business\Managers\" />
     <Folder Include="Business\Handlers\" />
     <Folder Include="Business\Validators\" />
-    <Folder Include="Business\Services\" />
-    <Folder Include="Data\Interfaces\" />
-    <Folder Include="Data\Repositories\" />
     <Folder Include="Domain\Models\Enums\" />
   </ItemGroup>
 
