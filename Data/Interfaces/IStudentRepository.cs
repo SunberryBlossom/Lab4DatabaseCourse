@@ -7,9 +7,9 @@ namespace Lab4.Data.Interfaces
 {
     internal interface IStudentRepository
     {
-        void AddStudent();
-        List<Student> GetAllStudents();
-        void UpdateStudentInfo(Student student);
-        void RemoveStudent(Student student);
+        //void AddStudent();
+        IQueryable<Student> GetAllStudents();
+        //void UpdateStudentInfo(Student student);
+        //void RemoveStudent(Student student);
     }
 }
