@@ -23,5 +23,15 @@ namespace Lab4.Data.Repositories
         {
             return _context.Students;
         }
+
+        public void Update(Student student)
+        {
+            _dbSet.Update(student);
+        }
+
+        public Student GetStudentById(int id)
+        {
+            return _context.Students.FirstOrDefault(s => s.Id == id);
+        }
     }
 }

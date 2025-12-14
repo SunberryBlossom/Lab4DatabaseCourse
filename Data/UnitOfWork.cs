@@ -14,7 +14,7 @@ namespace Lab4.Data
     {
         private readonly Lab4DBContext _context;
         private IDbContextTransaction _currentTransaction;
-
+        private IClassRepository _class;
         private IDepartmentRepository _department;
         private IEnrollmentRepository _enrollment;
         private IStudentRepository _student;
@@ -26,6 +26,10 @@ namespace Lab4.Data
             _context = context;
         }
 
+        public IClassRepository Class
+        {
+            get { return _class ??= new ClassRepository(_context); }
+        }
         public IDepartmentRepository Department
         {
             get { return _department ??= new DepartmentRepository(_context); }
