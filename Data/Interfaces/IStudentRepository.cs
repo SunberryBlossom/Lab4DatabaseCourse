@@ -9,5 +9,7 @@ namespace Lab4.Data.Interfaces
     {
         IQueryable<Student> GetAllStudents();
         void Update(Student student);
+
+        Student GetStudentById(int Id);
     }
 }
