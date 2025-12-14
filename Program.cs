@@ -1,5 +1,6 @@
 ﻿using Lab4.Business.DTOs;
 using Lab4.Business.Services;
+using Lab4.Business.Validators;
 using Lab4.Data;
 using Lab4.Data.Interfaces;
 using Lab4.Data.Repositories;
@@ -17,6 +18,8 @@ namespace Lab4
         static CourseService courseService;
         static EnrollmentService enrollmentService;
         static UnitOfWork unitOfWork;
+        static StudentValidator studentValidator;
+        static ClassValidator classValidator;
         static void Main(string[] args)
         {
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
@@ -27,9 +30,12 @@ namespace Lab4
 
             using (var context = new Lab4DBContext(optionsBuilder.Options))
             {
+
                 unitOfWork = new UnitOfWork(context);
+                studentValidator = new StudentValidator(unitOfWork);
+                classValidator = new ClassValidator(unitOfWork);
                 staffService = new DepartmentService(unitOfWork);
-                studentService = new StudentService(unitOfWork);
+                studentService = new StudentService(unitOfWork, studentValidator, classValidator);
                 courseService = new CourseService(unitOfWork);
                 enrollmentService = new EnrollmentService(unitOfWork);
 
@@ -61,6 +67,8 @@ namespace Lab4
             Console.WriteLine("[3] Show all currently active courses");
             Console.WriteLine("[4] Add a new grade to a student");
             Console.WriteLine("[ESC] Exit the application");
+            Console.WriteLine();
+            Console.WriteLine("[5] -EXTRA FEATURE- Correct and update an existing student's information");
         }
 
         static bool MenuChoice()
@@ -149,11 +157,48 @@ namespace Lab4
                     ClearConsoleFully();
                     enrollmentService.SetGrade(enrollmentId, gradePoint);
                     Console.WriteLine("Grade set!\n");
+                    ContinueBreak();
+                    break;
+
+                case ConsoleKey.D5:
+                    ClearConsoleFully();
+                    Console.Write("Enter the ID of the student you wish to correct/update: ");
+                    int studentId = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+
+                    Console.Write("Enter their first name: ");
+                    string firstName = Console.ReadLine();
+                    Console.WriteLine();
+
+                    Console.Write("Enter their last name: ");
+                    string lastName = Console.ReadLine();
+                    Console.WriteLine();
+
+                    Console.Write("Enter the students personnummer 10 or 12 numbers, '-' to separate the last 4 digits (i.e. xxxxxxxx-xxxx): ");
+                    string personnummer = Console.ReadLine();
+                    Console.WriteLine();
+
+                    Console.Write("Enter the student's home address: ");
+                    string address = Console.ReadLine();
+                    Console.WriteLine();
+
+                    Console.Write("Enter the student's email: ");
+                    string email = Console.ReadLine();
+                    Console.WriteLine();
+
+                    Console.Write("Enter the ID of the class the student is going to transfer to: ");
+                    int classId = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+
+                    ClearConsoleFully();
+                    studentService.UpdateStudentInfo(studentId, firstName, lastName, personnummer, address, email, classId);
+                    Console.WriteLine("Student updated!");
+                    ContinueBreak();
                     break;
 
                 case ConsoleKey.Escape:
                     return false;
-                    
+
             }
             return true;
         }
