@@ -18,18 +18,5 @@ namespace Lab4.Data.Repositories
         {
             return _context.Departments;
         }
-
-        public int GetNumOfDepartments()
-        {
-            return _context.Departments.Count();
-        }
-
-        public Department GetDepartmentById(int id)
-        {
-           var departments = GetAllDepartments();
-
-            return departments.FirstOrDefault(d => d.Id == id);
-
-        }
     }
 }

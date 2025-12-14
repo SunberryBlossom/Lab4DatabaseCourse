@@ -17,7 +17,6 @@ namespace Lab4.Data
 
         private IDepartmentRepository _department;
         private IEnrollmentRepository _enrollment;
-        private IStaffRepository _staff;
         private IStudentRepository _student;
         private ICourseRepository _course;
 
@@ -35,11 +34,6 @@ namespace Lab4.Data
         public IEnrollmentRepository Enrollment
         {
             get { return _enrollment ??= new EnrollmentRepository(_context); }
-        }
-
-        public IStaffRepository Staff
-        {
-            get { return _staff ??= new StaffRepository(_context); }
         }
 
         public IStudentRepository Student

@@ -14,16 +14,6 @@ namespace Lab4.Data.Repositories
             _context = context;
         }
 
-        public Course GetCourseById(int id)
-        {
-            return _context.Courses.FirstOrDefault(c => c.Id == id);
-        }
-
-        public IQueryable<Course> GetAllCourses()
-        {
-            return _context.Courses;
-        }
-
         public IQueryable<Course> GetAllActiveCourses()
         {
             var today = DateOnly.FromDateTime(DateTime.Now);

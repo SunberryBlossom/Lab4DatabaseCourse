@@ -9,7 +9,6 @@ namespace Lab4.Data.Interfaces
         ICourseRepository Course { get; }
         IDepartmentRepository Department { get; }
         IEnrollmentRepository Enrollment { get; }
-        IStaffRepository Staff { get; }
         IStudentRepository Student { get; }
 
         void BeginTransaction();

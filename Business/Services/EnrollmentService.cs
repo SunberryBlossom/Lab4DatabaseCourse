@@ -38,6 +38,7 @@ namespace Lab4.Business.Services
                 enrollment.Grade = gradePoint;
                 enrollment.DateOfGrade = DateOnly.FromDateTime(DateTime.Now);
 
+                _uow.Enrollment.Update(enrollment);
                 _uow.Commit();
             }
             catch (Exception ex)
