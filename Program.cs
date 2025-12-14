@@ -23,7 +23,7 @@ namespace Lab4
             string connection = config.GetConnectionString("DefaultConnection");
 
             var optionsBuilder = new DbContextOptionsBuilder<Lab4DBContext>();
-            optionsBuilder.UseSqlServer(connection); // <-- configure provider
+            optionsBuilder.UseSqlServer(connection);
 
             using (var context = new Lab4DBContext(optionsBuilder.Options))
             {
@@ -153,8 +153,7 @@ namespace Lab4
 
                 case ConsoleKey.Escape:
                     return false;
-                    break;
-
+                    
             }
             return true;
         }
@@ -171,13 +170,11 @@ namespace Lab4
         {
             try
             {
-                // ANSI: clear scrollback (ESC[3J), move home (ESC[H), clear screen (ESC[2J)
                 Console.Write("\u001b[3J\u001b[H\u001b[2J");
                 Console.Clear();
             }
             catch
             {
-                // Fallback: print a number of new lines then clear visible buffer.
                 int lines = Console.WindowHeight > 0 ? Console.WindowHeight : 50;
                 for (int i = 0; i < lines; i++)
                 {
