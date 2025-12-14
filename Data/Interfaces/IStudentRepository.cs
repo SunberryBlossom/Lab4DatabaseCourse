@@ -8,6 +8,6 @@ namespace Lab4.Data.Interfaces
     internal interface IStudentRepository
     {
         IQueryable<Student> GetAllStudents();
-        void UpdateStudentInfo();
+        void UpdateStudentInfo(int id);
     }
 }
