@@ -3,6 +3,9 @@ using Lab4.Business.Services;
 using Lab4.Data;
 using Lab4.Data.Interfaces;
 using Lab4.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 
 namespace Lab4
@@ -16,7 +19,13 @@ namespace Lab4
         static UnitOfWork unitOfWork;
         static void Main(string[] args)
         {
-            using (var context = new Lab4DBContext())
+            var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+            string connection = config.GetConnectionString("DefaultConnection");
+
+            var optionsBuilder = new DbContextOptionsBuilder<Lab4DBContext>();
+            optionsBuilder.UseSqlServer(connection); // <-- configure provider
+
+            using (var context = new Lab4DBContext(optionsBuilder.Options))
             {
                 unitOfWork = new UnitOfWork(context);
                 staffService = new DepartmentService(unitOfWork);
@@ -113,6 +122,10 @@ namespace Lab4
                         if (course.DaysLeft == 1)
                         {
                             Console.WriteLine("day");
+                        }
+                        else if (course.DaysLeft == 0)
+                        {
+                            Console.WriteLine("days! Examination day TODAY!");
                         }
                         else
                         {
