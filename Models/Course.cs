@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab4.Domain.Models;
+namespace Lab4.Models;
 
 public partial class Course
 {
@@ -13,5 +13,5 @@ public partial class Course
 
     public DateOnly EndDate { get; set; }
 
-    public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
+    public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 }

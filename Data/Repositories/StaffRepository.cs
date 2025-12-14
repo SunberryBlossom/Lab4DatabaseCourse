@@ -1,5 +1,5 @@
 ﻿using Lab4.Data.Interfaces;
-using Lab4.Domain.Models;
+using Lab4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +38,11 @@ namespace Lab4.Data.Repositories
         public List<Staff> GetAllTeachers()
         {
             return _context.Staff.Where(s => s.StaffTypeId == 1).ToList();
+        }
+
+        public Staff GetTeacherById(int id)
+        {
+            return _context.Staff.Where(s => s.StaffTypeId == 1).FirstOrDefault(t => t.Id == id);
         }
     }
 }

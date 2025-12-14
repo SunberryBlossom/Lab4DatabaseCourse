@@ -1,5 +1,5 @@
 ﻿using Lab4.Data.Interfaces;
-using Lab4.Domain.Models;
+using Lab4.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

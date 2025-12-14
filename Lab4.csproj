@@ -18,11 +18,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Business\Managers\" />
-    <Folder Include="Business\Handlers\" />
-    <Folder Include="Business\Validators\" />
-    <Folder Include="Domain\Models\Enums\" />
-  </ItemGroup>
-
 </Project>

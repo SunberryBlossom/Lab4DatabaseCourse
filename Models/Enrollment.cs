@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab4.Domain.Models;
+namespace Lab4.Models;
 
-public partial class Grade
+public partial class Enrollment
 {
     public int Id { get; set; }
 
-    public decimal? Grade1 { get; set; }
+    public decimal? Grade { get; set; }
 
     public DateOnly? DateOfGrade { get; set; }
 

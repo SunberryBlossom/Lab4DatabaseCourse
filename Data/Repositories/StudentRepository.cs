@@ -1,5 +1,6 @@
 ﻿using Lab4.Data.Interfaces;
-using Lab4.Domain.Models;
+using Lab4.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,28 @@ namespace Lab4.Data.Repositories
     internal class StudentRepository : IStudentRepository
     {
         private readonly Lab4DBContext _context;
+        private readonly DbSet<Student> _dbSet;
 
         public StudentRepository(Lab4DBContext context)
         {
             _context = context;
+            _dbSet = _context.Set<Student>();
         }
 
         public IQueryable<Student> GetAllStudents()
         {
             return _context.Students;
         }
+
+        public void Update(Student student)
+        {
+            _dbSet.Update(student);
+        }
+
+        public Student GetStudentById(int id)
+        {
+            return _context.Students.FirstOrDefault(s => s.Id == id);
+        }
+
     }
 }

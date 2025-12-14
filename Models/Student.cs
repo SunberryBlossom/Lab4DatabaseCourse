@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab4.Domain.Models;
+namespace Lab4.Models;
 
 public partial class Student
 {
@@ -21,5 +21,5 @@ public partial class Student
 
     public virtual Class Class { get; set; } = null!;
 
-    public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
+    public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 }

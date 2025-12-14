@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab4.Domain.Models;
+namespace Lab4.Models;
 
 public partial class Staff
 {
@@ -23,7 +23,7 @@ public partial class Staff
 
     public virtual Department Department { get; set; } = null!;
 
-    public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
+    public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 
     public virtual StaffType StaffType { get; set; } = null!;
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab4.Domain.Models;
+namespace Lab4.Models;
 
 public partial class Class
 {
