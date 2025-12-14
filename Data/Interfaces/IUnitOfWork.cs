@@ -15,7 +15,6 @@ namespace Lab4.Data.Interfaces
         void BeginTransaction();
         void Commit();
         void Rollback();
-
         int SaveChanges();
     }
 }

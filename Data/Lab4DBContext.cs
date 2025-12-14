@@ -18,17 +18,11 @@ public partial class Lab4DBContext : DbContext
     }
 
     public virtual DbSet<Class> Classes { get; set; }
-
     public virtual DbSet<Course> Courses { get; set; }
-
     public virtual DbSet<Department> Departments { get; set; }
-
     public virtual DbSet<Enrollment> Enrollments { get; set; }
-
     public virtual DbSet<Staff> Staff { get; set; }
-
     public virtual DbSet<StaffType> StaffTypes { get; set; }
-
     public virtual DbSet<Student> Students { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
